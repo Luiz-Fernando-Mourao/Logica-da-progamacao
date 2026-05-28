@@ -1,0 +1,66 @@
+Algoritmo "SistemaDeRevisao"
+
+Var
+   opcao, contador, i, numeroTabuada: inteiro
+   nota, frequencia: real
+
+Inicio
+   escreval("=== SISTEMA DE REVISÃO ===")
+   escreval("1 - Avaliação de Aluno (Se / Senão / Aninhados)")
+   escreval("2 - Teste de Paciência (Enquanto)")
+   escreval("3 - Gerador de Tabuada (Para)")
+   escreval("==========================")
+   escreva("Escolha uma opção: ")
+   leia(opcao)
+
+   escolha opcao
+      caso 1
+         escreval("")
+         escreval("--- AVALIAÇÃO DE ALUNO ---")
+         escreva("Digite a nota (0 a 10): ")
+         leia(nota)
+         escreva("Digite a frequência (0 a 100): ")
+         leia(frequencia)
+
+         se (frequencia >= 75) entao
+            se (nota >= 6.0) entao
+               escreval("Situação: APROVADO!")
+               
+               // Mais um nível de aninhamento
+               se (nota = 10.0) entao
+                  escreval("Mensagem extra: Excelente! Nota máxima!")
+               fimse
+            senao
+               escreval("Situação: REPROVADO por nota (Abaixo de 6.0).")
+            fimse
+         senao
+            escreval("Situação: REPROVADO por falta (Frequência abaixo de 75%).")
+         fimse
+
+      caso 2
+         escreval("")
+         escreval("--- TESTE DE PACIÊNCIA ---")
+         contador <- 1
+         
+         enquanto (contador <= 5) faca
+            escreval("Carregando o sistema... Tentativa ", contador)
+            contador <- contador + 1
+         fimenquanto
+         escreval("Sistema carregado com sucesso!")
+
+      caso 3
+         escreval("")
+         escreval("--- GERADOR DE TABUADA ---")
+         escreva("Qual tabuada você quer ver? ")
+         leia(numeroTabuada)
+
+         para i de 1 ate 10 faca
+            escreval(numeroTabuada, " x ", i, " = ", (numeroTabuada * i))
+         fimpara
+
+      outrocaso
+         escreval("")
+         escreval("Opção inválida! Por favor, reinicie e escolha 1, 2 ou 3.")
+   fimescolha
+
+Fimalgoritmo
